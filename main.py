@@ -3,12 +3,21 @@ from tkinter import*
 import random
 from tkinter import messagebox
 from random import shuffle
+import csv
 
-answers = ['apple', 'banana', 'orange', 'cherry', 'strawberry']
+presidents = open('us_presidents.csv', 'r')
+
+file = csv.DictReader(presidents)
+
+answers = []
+
+for column in file:
+    answers.append(column['president'])
 
 words = []
 
 for i in answers:
+    i = i.strip().lower().replace(' ', '')
     word = list(i)
     shuffle(word)
     words.append(word)
@@ -40,7 +49,7 @@ def initial():
 
 
 root = tkinter.Tk()
-root.geometry('300x300')
+root.geometry('500x300')
 lbl1 = Label(root, font='times 20')
 lbl1.pack(pady=30, ipady=10, ipadx=10)
 
