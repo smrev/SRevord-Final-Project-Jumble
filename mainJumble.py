@@ -20,7 +20,7 @@ total = 0
 for column in file:
     answers.append(column['president'])
 
-#Jumble the game answers and place in separate list
+#Jumble the game answers and place in a separate list
 for i in answers:
     i = i.strip().lower().replace(' ', '')
     word = list(i)
